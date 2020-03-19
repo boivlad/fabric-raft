@@ -1,6 +1,6 @@
 1. Перед началом работы с Fabric, необходимо установить и настроить PostgreSQL(Создать БД fabric_ca). 
 2. Создаем папку `sudo mkdir /var/hyperledger` (тут будут храниться данные пиров) и `sudo chmod 777 /var/hyperledger`
-3. Скачиваем бинарники `https://drive.google.com/drive/folders/1JaI61luousp_kvY53hxb-OCf5HAmdaE1?usp=sharing`
+3. Скачиваем бинарники https://drive.google.com/drive/folders/1JaI61luousp_kvY53hxb-OCf5HAmdaE1?usp=sharing
 	`cd ./CA` - переходим в папку `CA`
 3. `export PATH=<path to download location>/bin:$PATH`    - (добавляем бинарники в глобальную переменную PATH) (`export PATH=$PWD/bin:$PATH`)
 4. `fabric-ca-server start -b admin:adminpwd`      -   (запускаем CA тем самым создаем конфигурационный файл с параметрами по умолчанию)
