@@ -7,13 +7,13 @@
 7. `fabric-ca-server start -b admin:adminpwd`      -   (запускаем CA тем самым создаем конфигурационный файл с параметрами по умолчанию)
 8. в конфигурационном файле (fabric-ca-server-config.yaml) изменяем настройки базы данных + меняем affiliations + меняем настройки csr
 9. `fabric-ca-server start -b admin:adminpwd`     - снова запускаем CA
-10. `fabric-ca-client enroll --url http://admin:adminpwd@localhost:7054`  - авторизуемся админом
+10. `fabric-ca-client enroll --url http://admin:adminpwd@localhost:7054`-авторизуемся админом и копируем `~/.fabric-ca-client/msp`  в любую другую директорию(например, рабочий стол)
 11. `fabric-ca-client register --id.name peer  --id.secret peerpwd  --id.type peer  --id.affiliation org1.department1`   - регистрация пира в СА
 12. `fabric-ca-client enroll -u http://peer:peerpwd@localhost:7054` - авторизируемся peer'ом
 13. `cd ./Peer` - переходим в папку `Peer`
 14. Копируем `~/.fabric-ca-client/msp` в `./data/msp` 
 15. Создаём папку `./data/msp/admincerts`.
-16. Копируем сертификат администратора в `./data/msp/admincerts`
+16. Копируем сертификат администратора `cert.pem`, из `./msp/signcerts/` который скопировали на 10 шаге и вставляем его в `./data/msp/admincerts`
 17. Копируем `config.yaml` в `./data/msp/`
 18. Меняем значение полей `./data/msp/config.yaml` на актуальное название сертификата CA `./data/msp/cacerts` (`localhost-7054.pem`) 
 19. В `./data/core.yaml` меняем следующие натсройки:
@@ -30,7 +30,7 @@
 24. `cd ./Peer2` - переходим в папку `Peer2`
 25. Копируем `~/.fabric-ca-client/msp` в `./data/msp` 
 26. Создаём папку `./data/msp/admincerts`.
-27. Копируем сертификат администратора в `./data/msp/admincerts`
+27. Копируем сертификат администратора `cert.pem`, из `./msp/signcerts/` который скопировали на 10 шаге и вставляем его в `./data/msp/admincerts`
 28. Копируем `config.yaml` в `./data/msp/`
 29. Меняем значение полей `./data/msp/config.yaml` на актуальное название сертификата CA `./data/msp/cacerts` (`localhost-7054.pem`) 
 30. В `./data/core.yaml` меняем следующие настройки:
@@ -47,7 +47,7 @@
 35. `cd ./Order` - переходим в папку `Order`
 36. Копируем `~/.fabric-ca-client/msp` в `./data/msp` 
 37. Создаём папку `./data/msp/admincerts`.
-38. Копируем сертификат администратора в `./data/msp/admincerts`
+38. Копируем сертификат администратора `cert.pem`, из `./msp/signcerts/` который скопировали на 10 шаге и вставляем его в `./data/msp/admincerts`
 39. Копируем `config.yaml` в `./data/msp/`
 40. Меняем значение полей `./data/msp/config.yaml` на актуальное название сертификата CA `./data/msp/cacerts` (`localhost-7054.pem`) 
 41. `cryptogen generate --config crypto-config.yaml`
