@@ -2,8 +2,8 @@
 2. git clone https://github.com/boivlad/fabric-raft.git
 3. Создаем папку `sudo mkdir /var/hyperledger` (тут будут храниться данные пиров) и `sudo chmod 777 /var/hyperledger`
 4. Скачиваем бинарники в директорию `fabric-raft` https://drive.google.com/drive/folders/1JaI61luousp_kvY53hxb-OCf5HAmdaE1?usp=sharing
-5. `cd ./CA` - переходим в папку `CA`
-6. `export PATH=<path to download location>/bin:$PATH`    - (добавляем бинарники в глобальную переменную PATH) (`export PATH=$PWD/bin:$PATH`)
+5. `export PATH=<path to download location>/bin:$PATH`    - (добавляем бинарники в глобальную переменную PATH) (`export PATH=$PWD/bin:$PATH`)
+6. `cd ./CA` - переходим в папку `CA`
 7. `fabric-ca-server start -b admin:adminpwd`      -   (запускаем CA тем самым создаем конфигурационный файл с параметрами по умолчанию)
 8. в конфигурационном файле (fabric-ca-server-config.yaml) изменяем настройки базы данных + меняем affiliations + меняем настройки csr
 9. `fabric-ca-server start -b admin:adminpwd`     - снова запускаем CA
